@@ -39,10 +39,13 @@ public uploader: FileUploader = new FileUploader({url: this.uri, itemAlias: 'pho
 
     window.onscroll=function()
     {
+      
+
       if(window.pageYOffset>0)
-      {
-        document.getElementById('hide').style.display="none";
-      }
+{
+   this.document.getElementById('hide').style.display="none";
+   
+}
     }
     
     this.registerForm = this.formBuilder.group({

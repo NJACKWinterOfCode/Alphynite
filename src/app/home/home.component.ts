@@ -30,13 +30,15 @@ export class HomeComponent implements OnInit {
       
 
       if(window.pageYOffset>0)
-      {
-        document.getElementById('hide').style.display="none";
-      }
-      else
-      {
-        document.getElementById('hide').style.display="block";
-      }
+{
+   this.document.getElementById('hide').style.display="none";
+   
+}
+else
+{
+  this.document.getElementById('hide').style.display="block";
+
+}
     }
     this.index=0;
     this.http.get('http://bookboss.herokuapp.com/home').subscribe(res=>
