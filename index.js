@@ -4,6 +4,8 @@ var path = require('path')
 
 var msg91 = require("msg91")("197611ACBvIjqJZM5a7ed724","AAYYUU", "4" );
 
+var MongoClient = require('mongodb').MongoClient;
+
 var app = express();
 var multer = require('multer');
 var bodyParser = require('body-parser');
@@ -82,27 +84,36 @@ app.post('/api/upload',upload.single('photo'), function (req, res,err) {
      
 });
  
-	
-
-	
-
 
 app.post("/api/sendotp/",function(req,res){
+  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser: true},function(err,client){
+    if(err){
+      console.log("Unable to connect");
+    }
+    console.log("Connected to Mongodb");
+    const db = client.db('Users');
 
-console.log();
-	var mobileNo = req.body[0]['data']['Phone'];
- console.log(req.body[0]['OTP'])
+    
+    var mobileNo = req.body[0]['data']['Phone']; 
+    console.log(req.body[0]['OTP'])
+    
+    var data = req.body[0]['data'];
+    
+    db.collection('Users').insertOne(data,function(err,result){
+      console.log("saved!");
+      
+    });
+ 
+    var Message="Hi ! You OTP is "+req.body[0]['OTP'];
+    msg91.send(mobileNo, Message, function(err, response){
+        console.log(err);
+        console.log(response);
+    });
+    console.log(req.connection.remoteAddress);
 
- var Message="Hi ! You OTP is "+req.body[0]['OTP'];
-msg91.send(mobileNo, Message, function(err, response){
-    console.log(err);
-    console.log(response);
-});
-console.log(req.connection.remoteAddress);
-
-	res.send(["Done"]);
-
-
+	  res.send(["Done"]);
+    client.close();
+  });
 })
 
 

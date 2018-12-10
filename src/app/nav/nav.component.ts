@@ -88,7 +88,7 @@ export class NavComponent implements OnInit {
   get l() { return this.loginForm.controls; }
 
   onSubmit() {
-
+      
 if(isNaN(this.registerForm.value.Phone))
 {
 
