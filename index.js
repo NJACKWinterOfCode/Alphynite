@@ -20,10 +20,6 @@ app.use(function (req, res, next) {
 	next();
 });
  
-
-
-
-;
 app.use('/uploads/', express.static(path.join(__dirname, '/public/uploads')));
 
 var storage = multer.diskStorage({
@@ -98,12 +94,23 @@ app.post("/api/sendotp/",function(req,res){
     console.log(req.body[0]['OTP'])
     
     var data = req.body[0]['data'];
-    
-    db.collection('Users').insertOne(data,function(err,result){
-      console.log("saved!");
-      
-    });
- 
+    console.log(data);
+
+    const saltRounds = 10;
+	  bcrypt.hash(data.Password, saltRounds, function(err, hash) {
+      if(err){
+        console.log("Error");
+      }
+      else{
+          data.Password = hash;
+          db.collection('Users').insertOne(data,function(err,result){
+            console.log("saved!");   
+          });
+          client.close();
+      }
+
+	  })
+
     var Message="Hi ! You OTP is "+req.body[0]['OTP'];
     msg91.send(mobileNo, Message, function(err, response){
         console.log(err);
@@ -112,7 +119,6 @@ app.post("/api/sendotp/",function(req,res){
     console.log(req.connection.remoteAddress);
 
 	  res.send(["Done"]);
-    client.close();
   });
 })
 
