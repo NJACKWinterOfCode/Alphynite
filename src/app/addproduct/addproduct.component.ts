@@ -43,7 +43,7 @@ public uploader: FileUploader = new FileUploader({url: this.uri, itemAlias: 'pho
 
       if(window.pageYOffset>0)
 {
-   this.document.getElementById('hide').style.display="none";
+   document.getElementById('hide').style.display="none";
    
 }
     }
