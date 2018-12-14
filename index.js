@@ -94,7 +94,6 @@ app.post("/api/sendotp/",function(req,res){
     console.log(req.body[0]['OTP'])
     
     var data = req.body[0]['data'];
-    console.log(data);
 
     const saltRounds = 10;
 	  bcrypt.hash(data.Password, saltRounds, function(err, hash) {
