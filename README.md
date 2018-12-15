@@ -42,7 +42,19 @@ ng serve
 npm install
 nodemon index.js
 ```
+## Setting Up MongoDB
 
+- Navigate to the directory to where mongod is installed and run the following command Linux/MAC and 
+```sh
+    ./mongod --dbpath <PATH_FOR_MONGODATA>
+```
+- Restart the server by running
+```sh
+    nodemon index.js
+```
+- (Optional) For graphical interface of mongodb data use Robo 3T 
+Download
+https://robomongo.org/download 
 
 ## Branch Policy
 
