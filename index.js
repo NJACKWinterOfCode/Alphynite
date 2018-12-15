@@ -121,12 +121,48 @@ app.post("/api/sendotp/",function(req,res){
   });
 })
 
+app.post("/api/login",function(req,res){
+  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser:true},
+  function(err,client){
+    if(err){
+      console.log("Unable to connect");
+    }
+    console.log("Connected to Mongodb");
+    const db = client.db('Users');
+    const saltRounds = 10;
+    var username = req.body.Phone + '';
+    var password = req.body.Password;
+    var auth = true;
+    bcrypt.hash(password,saltRounds,function(err,hash){
+      if(err){
+        auth = false;
+      }
+      else{        
+        db.collection('Users').find({Phone:username}).toArray()
+        .then(function(doc){
+          if(hash === doc[0].Password){
+            auth = true;
+          }
+          else{
+            auth = false;            
+          }
+        },function(err){
+          auth = false;
+        }).catch((e) => {
+          console.log(e); 
+        })
+        res.send(auth);
+      }
+    })
+  
 
+  })
+})
 
 app.post("/api/signup/",function(req,res){
 
-	console.log(req.body[0]['data']['Phone']);
-	
+  console.log(req.body[0]['data']['Phone']);
+
 
 	const saltRounds = 10;
 	bcrypt.hash(req.body[0]['data']['Phone'], saltRounds, function(err, hash) {

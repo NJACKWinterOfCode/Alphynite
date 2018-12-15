@@ -162,10 +162,20 @@ if(isNaN(this.registerForm.value.Phone))
             'Content-Type':  'application/json'
           })
         };
-        this.http.post(this.config,JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
+        
+        this.http.post(this.config+"/api/login",JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
         {
   
         console.log(res);
+        if(res){
+          var d = new Date();
+          d.setTime(d.getTime() + (2*24*60*60*1000));
+          var expires = "expires="+ d.toUTCString();
+          document.cookie = "user" + "=" + res['hash'] + ";" + expires + ";path=/";
+          localStorage.setItem("user",res['hash']);
+          document.getElementById('hide').style.display="none";
+          this.route.navigate(['dash']);
+        }
           
          })
   
@@ -203,13 +213,13 @@ if(checkotp==this.signupotp)
 
 
 
-var d = new Date();
+    var d = new Date();
     d.setTime(d.getTime() + (2*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = "user" + "=" + res['hash'] + ";" + expires + ";path=/";
-  localStorage.setItem("user",res['hash']);
-  document.getElementById('hide').style.display="none";
-     this.route.navigate(['dash']);
+    localStorage.setItem("user",res['hash']);
+    document.getElementById('hide').style.display="none";
+    this.route.navigate(['dash']);
     
    })
 
