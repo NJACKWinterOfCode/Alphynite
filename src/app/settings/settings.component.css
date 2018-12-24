@@ -1,3 +1,18 @@
+#top {
+  margin-top:120px;
+}
+
+#one {
+  color: white;
+}
+
+#two {
+  word-wrap:break-word;
+}
+
+form {
+  text-align:center;
+}
 
 #dashsidebar> div>div:hover{
     cursor: pointer;

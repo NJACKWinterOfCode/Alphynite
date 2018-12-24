@@ -1,6 +1,6 @@
 #top
 {
-    overflow: hidden;
+  overflow: hidden;
   background-color: #333;
   position: fixed;
   top: 0;
@@ -8,6 +8,102 @@
   width: 100%;
 
 }
+
+.margin_auto {
+  margin: auto;
+}
+#two {
+  width: 100%;
+}
+#input {
+  width:100%;
+  margin-top:1%
+}
+
+#button_dash {
+  margin-top:1%;
+}
+#results {
+  width:80%
+}
+#button1 {
+  width:100%;
+  margin-top:1%
+}
+#res {
+  height:50px;
+}
+#otp_1 {
+  width:70%;
+  height:100%;
+  margin-top:10%;
+  margin-left:15%
+}
+.mid {
+  text-align: center;
+}
+#otp_img {
+  width:200px;
+  height:200px;
+}
+
+#otp_2 {
+  background-color: white;
+}
+select {
+  zoom: 0.5;
+}
+
+.half {
+  width: 50%;
+}
+#button2 {
+  margin-top:1%;
+}
+
+#post1 {
+  background-color:white;
+  height:fit-content;
+  border-radius: 25px
+}
+#post2 {
+  margin-top: 5px;
+}
+
+#post3 {
+  float: right;
+}
+
+#leftform {
+  height:auto;
+  border-radius:25px;
+  background-color: gold
+}
+
+#hide {
+  display:block;
+  background-color: white
+}
+strong {
+  color: blueviolet;
+}
+
+#one {
+  float :right;
+  cursor:pointer
+}
+
+#otp1 {
+  margin: auto;
+  width:40%;
+  padding: 10px;
+  text-align: center
+}
+#otp_err {
+  text-align: center;
+  color:red
+}
+
 #options
 {
 

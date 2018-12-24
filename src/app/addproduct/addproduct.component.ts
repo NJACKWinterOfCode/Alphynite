@@ -4,7 +4,6 @@ import {HttpHeaders} from '@angular/common/http'
 import {Router, ActivatedRoute} from '@angular/router';
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { HttpClient } from '@angular/common/http';
-import { directiveInject } from '@angular/core/src/render3';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',

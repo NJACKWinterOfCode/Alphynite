@@ -1,9 +1,13 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="nav.component.css">
+</head>
+
 <div id="top">
-    <div id="hide" style="display:block;background-color: white;  " class="container-fluid">
+    <div id="hide" class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <a href="#"> Call:+91-8447033951</a>
-                <a style="float :right;cursor:pointer" (click)="post=true;hidehome();   "> <u><strong style="color:  blueviolet;">Post Your Requirement</strong></u></a>
+                <a id="one" (click)="post=true;hidehome();"> <u><strong >Post Your Requirement</strong></u></a>
 
             </div>
 
@@ -22,15 +26,15 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form class="form-inline my-2 my-lg-0" style="width: 100%">
+        <form id="two" class="form-inline my-2 my-lg-0" >
             <div class="container">
                 <div class="row">
 <div class="col-lg-6 col-md-4 col-sm-3 col-6">
-        <input id="input" (click)="form=true" (keyup)="keyup($event)" [(ngModel)]="input" name="input" style="width:100%;;margin-top:1%"
+        <input id="input" (click)="form=true" (keyup)="keyup($event)" [(ngModel)]="input" name="input"
         class=" form-control " type="search" placeholder="Search">
 </div>
 <div class="col-lg-2 col-md-2 col-sm-2 col-3">
-        <button class=" btn btn-outline-primary  " type="submit" style="width:100%;margin-top:1%">
+        <button class=" btn btn-outline-primary " id="button1" type="submit" >
                 <i class="fas fa-search"></i>
             </button>
            
@@ -44,14 +48,14 @@
 <ng-template #logup>
         <li>
                 <a class="nav-link " href="#">
-                    <button (click)="post=true ;hidehome();"  class=" btn btn-outline-primary  " type="submit" style="margin-top:1%">
+                    <button (click)="post=true ;hidehome();"  class=" btn btn-outline-primary  " id="button2" type="submit">
                         Sell on Alphynite</button>
                 </a>
 
             </li>
             <li>
                 <a class="nav-link " >
-                    <select class="nav-link" value="City" style="zoom:0.5">
+                    <select class="nav-link" value="City" >
                         <option value="Select">Select City</option>
                         <option value="Delhi">Delhi</option>
                         <option value="Gurgaon">Gurgaon</option>
@@ -67,7 +71,7 @@
 <ng-template #log>
         <li>
                 <a class="nav-link " href="#">
-                    <button   class=" btn btn-outline-primary"  style="margin-top:1%">
+                    <button id="button_dash"   class=" btn btn-outline-primary" >
                        DashBoard</button>
                 </a>
 
@@ -99,12 +103,12 @@
         
     </nav>
 </div>
-<div id="results" *ngIf="form" style="width:80%">
+<div id="results" *ngIf="form">
     <div class="container-fluid">
 
 
         <div class="row">
-            <div id="res" style=" height:50px;" class="col-lg-4 col-sm-8 col-xs-8" *ngFor="let j of search">
+            <div id="res" class="col-lg-4 col-sm-8 col-xs-8" *ngFor="let j of search">
                 <i class="fas fa-vials"> </i>
                 <span>{{j}}</span>
             </div>
@@ -119,15 +123,15 @@
 <!--Mobile OTP Intake-->
 
 <form *ngIf="mobile" id="mobile">
-    <div class="container-fluid" style="width:70%;height:100%;margin-top:10%;margin-left:15%">
-        <div class="row" style="background-color:white;">
+    <div class="container-fluid" id="otp_1" >
+        <div class="row" id="otp_2" >
         <div><i class="fas fa-times fa-2x" (click)="mobile=false"></i>
         </div>
-        <div  style="text-align:center;" class="col-lg-12">
-            <img  src="https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/SMS-512.png" style="width:200px;height:200px;">
+        <div  class="col-lg-12 mid">
+            <img id="otp_img"  src="https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/SMS-512.png" >
         </div>
         <div  class="col-lg-12">
-                <h4 style="text-align:center">Verify your mobile number</h4>
+                <h4 class="mid">Verify your mobile number</h4>
    
         </div>
     
@@ -140,20 +144,20 @@
 
      
             <div class="container-fluid" >
-                <div class="row" style="text-align: center">
-                        <input id="otp1"  [(ngModel)]="otpvalue" name="otpvalue" placeholder="Enter OTP" type="text" minlength="4" maxlength="4"    class="form-control" style=" margin: auto;width:40%;padding: 10px;text-align: center  ; " autofocus   >
+                <div class="row mid" >
+                        <input id="otp1"  [(ngModel)]="otpvalue" name="otpvalue" placeholder="Enter OTP" type="text" minlength="4" maxlength="4"    class="form-control"  autofocus   >
                     
                 </div>
 
        </div>
-       <div  style="text-align: center;color:red" *ngIf="errorotp" class="container-fluid" >
+       <div id="otp_err"  *ngIf="errorotp" class="container-fluid" >
              Wrong OTP . !!! Retry of Resend New OTP.
        </div>
                
         </div>
 
         
-        <div class="center" style="text-align:center">
+        <div class="center mid" >
                 <button class="btn btn-outline-primary"(click)="verifyotp(otpvalue)" >Submit</button>
 
 
@@ -177,18 +181,18 @@
 
 
 <form *ngIf="post" id="post">
-    <div class="container" style="background-color:white;height:fit-content;border-radius: 25px">
-        <div class="row" style="margin-top:5px">
+    <div class="container" id="post1">
+        <div class="row" id="post2" >
             <div class="container">
-                <div (click)="post=false;unhidehome()" style="float:right">
+                <div (click)="post=false;unhidehome()" id="post3" >
                     <i class="fas fa-times fa-3x"></i>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3" id="leftform" style="height:auto;border-radius:25px;background-color: gold">
+                    <div class="col-lg-3" id="leftform" >
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h5 style="text-align: center"> How It Works??</h5>
+                                    <h5 class="mid"> How It Works??</h5>
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-4  col-xs-12"> Post Your Requirement
@@ -219,19 +223,19 @@
                     <div class="col-lg-9">
                         <div class="container-fluid">
                             <div class="row">
-                                <button (click)="signup=true;login=false;loginForm.reset();loginsubmitted=false;" class="btn btn-outline-primary "  style="width:50%">Signup</button>
+                                <button (click)="signup=true;login=false;loginForm.reset();loginsubmitted=false;" class="btn btn-outline-primary half "  >Signup</button>
                                 
 
-                                <button (click)="login=true;signup=false;registerForm.reset();signupsubmitted=false;" class="btn btn-outline-primary " style="width:50%">Login</button>
+                                <button (click)="login=true;signup=false;registerForm.reset();signupsubmitted=false;" class="btn btn-outline-primary half " >Login</button>
 
                             </div>
                             <div class="row">
 
                                 <div class="col-lg-12" *ngIf="signup">
                                     <div class="container">
-                                        <div class="row" style="margin:auto">
+                                        <div class="row margin_auto">
                                             <div class="col-md-6 offset-md-3">
-                                                <h4 style="text-align: center">Signup</h4>
+                                                <h4 class="mid">Signup</h4>
                                                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
                                                     <div class="form-group">
@@ -288,9 +292,9 @@
                                 </div>
                                 <div class="col-lg-12" *ngIf="login">
                                     <div class="container">
-                                        <div class="row" style="margin:auto">
+                                        <div class="row margin_auto" >
                                             <div class="col-md-6 offset-md-3">
-                                                <h4 style="text-align: center">Login</h4>
+                                                <h4 class="mid">Login</h4>
                                                 <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
                                                     <div class="form-group">
                                                         <label>Phone</label>

@@ -1,4 +1,9 @@
-<div class="container-fluid" style="margin-top:120px" id="companyprofilepage">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="companyprofilepage.component.css">
+</head>
+
+<div class="container-fluid"  id="companyprofilepage">
   <div class="container-fluid" id="companyprofilepagetop">
     <div class="row">
       <div class="col-lg-6 col-md-6">
@@ -10,16 +15,16 @@
       <div class="col-lg-3 col-md-3">
 
       </div>
-      <div class="col-lg-3 col-md-3" style="float:right">
+      <div class="col-lg-3 col-md-3 right" >
         <div class="container-fluid">
-          <div class="row" style="margin:auto">
-            <button id="contactbuttons" style="float: right" class="  btn btn-outline-primary   col-lg-12">
+          <div class="row mar_auto" >
+            <button id="contactbuttons" class="btn btn-outline-primary col-lg-12 right">
               <i class="fas fa-phone"></i>Call Now</button>
 
 
           </div>
-          <div class="row" style="margin:auto">
-            <button id="contactbuttons" style="float: right" class="btn btn-outline-success col-lg-12">
+          <div class="row mar_auto" >
+            <button id="contactbuttons" class="btn btn-outline-success col-lg-12 right">
               <i class="fas fa-envelope"></i>Message</button>
 
           </div>
@@ -37,13 +42,13 @@
 
 
 
-  <div class="container-fluid" style="overflow: scroll;height: 100%;">
+  <div class="container-fluid" id="top_nav" >
     
     <!--Navigator conatining Home , About -->
-    <div class="container-fluid" style="margin-top:2%" id="navcompany">
+    <div class="container-fluid" id="navcompany">
       <div class="row">
         <div class="col-lg-3 col-md-4">
-          <h4 style="color: black"><i class="fas fa-list-ul"></i>Our Products</h4>
+          <h4 id="nav_prod" ><i class="fas fa-list-ul"></i>Our Products</h4>
         </div>
 
 
@@ -63,11 +68,11 @@
 
   <!--Home-->
    <div class="container-fluid" *ngIf="home" >
-      <div class="container-fluid" style="margin-top:2%;">
+      <div class="container-fluid" id="home_top">
           <div class="row">
-          <div class="col-lg-4 col-md-4 " style="position: relative;">
-            <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%">
-          <button style="position: absolute;left:40%;top:90%" class="btn btn-primary">Get Quote</button>
+          <div class="col-lg-4 col-md-4 " id="home_img_cont">
+            <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" >
+          <button  id="button_quote" class="btn btn-primary">Get Quote</button>
     
           </div>
           <div class="col-lg-8 col-md-8">
@@ -77,7 +82,7 @@
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
               
@@ -85,21 +90,21 @@
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
               
@@ -107,12 +112,12 @@
     
     
               </div> 
-              <div class="row" style="margin-top:3%">
+              <div class="row" id="home_subimg_cont">
                 <div class="col-lg-3 col-md-3">
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
               
@@ -120,21 +125,21 @@
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
                   <div >
     
                  
-                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="max-width:100%;height:50%x">
+                    <img  src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="home_img">
                   </div>
                 </div>
               
@@ -155,17 +160,17 @@
 
 
     
-        <div class="container-fluid" style="margin-top:2%;height: fit-content; background:greenyellow">
-          <div style="text-align: center">
+        <div class="container-fluid" id="comp_fact_cont">
+          <div id="comp_fact_head">
             <h3 >Company Factsheet</h3>
           </div>
     
-          <div class="container-fluid; " style="margin-top:3%">
-            <div class="row" style="text-align: center">
+          <div class="container-fluid; " id="fact_cont">
+            <div class="row" id="fact_des">
               <div class="col-lg-4 col-md-4">
     
-                <div style="border-radius: 25px">
-                  <span style="font-size: 2em; color: Tomato;">
+                <div class="comp_fact_sub_cont" >
+                  <span class="comp_fact_sub_des">
                     <i class="fas fa-building "></i>
                   </span>
                 </div>
@@ -175,8 +180,8 @@
               </div>
               <div class="col-lg-4 col-md-4">
     
-                <div style="border-radius: 25px">
-                  <span style="font-size: 2em; color: Tomato;">
+                <div class="comp_fact_sub_cont" >
+                  <span class="comp_fact_sub_des">
                     <i class="fas fa-building "></i>
                   </span>
                 </div>
@@ -186,8 +191,8 @@
               </div>
               <div class="col-lg-4 col-md-4">
     
-                <div style="border-radius: 25px">
-                  <span style="font-size: 2em; color: Tomato;">
+                <div class="comp_fact_sub_cont" >
+                  <span class="comp_fact_sub_des">
                     <i class="fas fa-building "></i>
                   </span>
                 </div>
@@ -203,12 +208,12 @@
     
     
     
-          <div class="container-fluid" style="background-color: rgb(226, 25, 25)" style="margin-top:2%">
-    <div style="text-align: center ;background-color: white;word-break: break-all">
+          <div id="des_cont" class="container-fluid">
+    <div id="des">
       Tie Knots International was built in year jsbibisbfbeojbofbwoebofbwoebfoewbfooooefew.
       efwe
-      <div style="margin:auto"> 
-          <button class="btn  btn-outline-primary" style="text-align: center;margin:auto"> Read More</button>
+      <div id="des_btn_cont">
+          <button class="btn  btn-outline-primary" id="des_btn"> Read More</button>
   
       </div>
     </div>
@@ -220,12 +225,12 @@
     
         <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-12 scrollmenu  " style="margin-top:10px;border: 1px solid lightgrey;">
+              <div class="col-lg-12 scrollmenu  " id="city_cont">
       
       
-                <a *ngFor="let i of cities" style=" width:200px;" href="{{i}}">
+                <a *ngFor="let i of cities" id="city_link" href="{{i}}">
       
-                  <img src="    https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" style="height: 200px">
+                  <img src="    https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" id="city_img">
       
                   <!-- <div style="border-radius:50px;background-color:rgb(231, 220, 220);" >
                                   <img style="border-radius:50px;max-width:100%;height: 100px;" src="https://cdn3.iconfinder.com/data/icons/landmarks-line-vol-1/512/delhi__state__Landmark__building__capital__monument__architecture-512.png">
@@ -246,22 +251,22 @@
 
 
 
-<div class="container-fluid" style="margin-top: 3%">
+<div class="container-fluid mar_3" >
 <div class="row">
     <div class="card col-lg-3">
         <div class="card">
-          <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="height:200px;max-width:100%">
+          <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="img_mid_seq">
      
          <button  class="btn btn-outline-primary">Get Quote</button>
       
        
-        </div>    
+        </div>
        
          </div>
   
   <div class="card col-lg-3">
       <div class="card">
-        <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="height:200px;max-width:100%">
+        <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="img_mid_seq">
      <div>
        <button class="btn btn-outline-primary">Get Quote</button>
      </div>
@@ -271,7 +276,7 @@
        </div>
        <div class="card col-lg-3">
           <div class="card">
-            <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="height:200px;max-width:100%">
+            <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="img_mid_seq">
          <div>
            <button class="btn btn-outline-primary">Get Quote</button>
          </div>
@@ -281,7 +286,7 @@
            </div>
            <div class="card col-lg-3">
               <div class="card">
-                <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" style="height:200px;max-width:100%">
+                <img src="https://3.imimg.com/data3/AF/BB/MY-1903201/embossed-or-engraved-cufflinks-500x500.jpg" class="img_mid_seq">
              <div>
                <button class="btn btn-outline-primary">Get Quote</button>
              </div>
@@ -300,9 +305,9 @@
 
 
 
-<div class="container-fluid" style="margin-top: 3%">
-<div ><h3 style="border-bottom:2px solid yellow;text-align: center;border-width: 10%">Reach Us</h3></div>
-<div class="row" style="text-align: center">
+<div class="container-fluid mar_3" >
+<div ><h3 id="contact-h3">Reach Us</h3></div>
+<div class="row text-center" >
     <div class="col-lg-6">
         <div>
         <h3>
@@ -347,9 +352,9 @@
         </div>
         
 </div>
-<div style="text-align:center"  style="margin-top:3%">
+<div id="social_top">
           
-    <div  style="text-align:center;margin:auto" id="share">
+    <div   id="share">
         Share Us: <!-- Facebook -->
         <a class="fb-ic">
           <i class="fa fa-facebook white-text mr-4"> </i>
@@ -388,48 +393,47 @@
    <!--About US-->
    <div class="container-fluid" *ngIf="about">
 
-<div class="container-fluid" style="margin-top: 3%;">
-  <div><h3 style="border-bottom: 2px solid brown;text-align: center">Tie knot International</h3></div>
+<div class="container-fluid mar_3" >
+  <div><h3 id="contact-brdr">Tie knot International</h3></div>
   <div>
       Incepted in the year 1992, Tie Knots International is a principal name in the industry located in (Delhi, India). We are the foremost name offering top quality range of Mens Neckties, Cufflinks And Tie Clips, Ladies Scarves, Silk Pocket Squares, Corporate Gift Set, Designer Ties, Bow Ties and Ascot Cravat. These collections are made-up by experts taking full care of the quality of the threads &yarns used and fitting as per the requirements of the clients. All these collections are available as per the different necessities of the clients. They are accessible in various sizes & textures and as per the necessities &budgets of clients. They are highly valued for its pure fabrics that make wearer feel good after wearing these products.
-
   </div> 
   <div>
       Incepted in the year 1992, Tie Knots International is a principal name in the industry located in (Delhi, India). We are the foremost name offering top quality range of Mens Neckties, Cufflinks And Tie Clips, Ladies Scarves, Silk Pocket Squares, Corporate Gift Set, Designer Ties, Bow Ties and Ascot Cravat. These collections are made-up by experts taking full care of the quality of the threads &yarns used and fitting as per the requirements of the clients. All these collections are available as per the different necessities of the clients. They are accessible in various sizes & textures and as per the necessities &budgets of clients. They are highly valued for its pure fabrics that make wearer feel good after wearing these products.
 
-  </div>
-  
-</div>
+   </div>
 
-<div class="container-fluid" style="margin-top:4%;background-color: rgb(228, 225, 225)">
-  <div    >
-  <h2 style="text-align: center;border-bottom:2px solid chocolate;border-width: 50%">Fact Sheet</h2>
   </div>
-  <div class="container-fluid " style="height: 300px  ;margin-top:2%">
+
+<div class="container-fluid" id="btm_top">
+  <div>
+  <h2 id="btm_h2">Fact Sheet</h2>
+  </div>
+  <div class="container-fluid " id="btm_div" >
       <div class="row">
-          <div  style="border-bottom:2px solid rgb(161, 159, 159)" class="col-6">
+          <div  class="col-6 btm_cont">
         <h4 >  Nature of Business</h4>  
     
           </div>
-          <div style="border-bottom:2px solid  rgb(161, 159, 159);border-left:2px solid rgb(161, 159, 159)" class="col-6">
+          <div class="col-6 btm_cont_brdr">
               <h4 >  Nature of Business</h4>  
             </div>
           </div>
           <div class="row">
-              <div  style="border-bottom:2px solid rgb(161, 159, 159)" class="col-6">
+              <div class="col-6 btm_cont">
             <h4 >  Nature of Business</h4>  
         
               </div>
-              <div style="border-bottom:2px solid  rgb(161, 159, 159);border-left:2px solid rgb(161, 159, 159)" class="col-6">
+              <div  class="col-6 btm_cont_brdr">
                   <h4 >  Nature of Business</h4>  
                 </div>
               </div>
               <div class="row">
-                  <div  style="border-bottom:2px solid rgb(161, 159, 159)" class="col-6">
+                  <div class="col-6 btm_cont">
                 <h4 >  Nature of Business</h4>  
             
                   </div>
-                  <div style="border-bottom:2px solid  rgb(161, 159, 159);border-left:2px solid rgb(161, 159, 159)" class="col-6">
+                  <div class="col-6 btm_cont_brdr">
                       <h4 >  Nature of Business</h4>  
                     </div>
                   </div>
@@ -451,8 +455,8 @@
 </div>
 
 
-<div class="container-fluid" style="margin-top:8%"> 
-  <div style="text-align: center;border-bottom: 2px solid chocolate;border-bottom-width:50%"> <h4>WHY US?</h4></div>
+<div class="container-fluid" id="abt_cont">
+  <div id="abt_div"> <h4>WHY US?</h4></div>
 
 
   <div>
@@ -488,34 +492,34 @@
 
 
 
-<div class="container-fluid" style="width:90%;margin-top:8%;background-color: rgb(49, 49, 245)" >
+<div class="container-fluid" id="req_cont" >
  
-    <div   class="container-fluid" style="width:100%;background-color:rgb(172, 168, 168)">
-      <h3 style="color:white;padding:10px 10px;text-align:center">Tell What You Need??</h3>
+    <div   class="container-fluid" id="req_div">
+      <h3 id="req_h3">Tell What You Need??</h3>
     </div>
     <div>
-      <div style="color:white"> Describe Your Requirement in Detail </div>
-<textarea [(ngModel)]="querytosent" style="width: 100%" name="querytosent"></textarea>
+      <div class="white"> Describe Your Requirement in Detail </div>
+<textarea [(ngModel)]="querytosent" class="full-width" name="querytosent"></textarea>
     </div>
     <div  class="container-fluid" >
-        <button  class="btn" (click)="querysubmit(querytosent)" style="margin:auto;display: block;color:white ;background-color: rgb(0, 166, 153);" >Submit Query</button>
+        <button  class="btn btn_query" (click)="querysubmit(querytosent)" >Submit Query</button>
 
     </div>
-<div  style="visibility: hidden;">
+<div  class="hide">
  You Information  
 </div>
 
 </div>
 
-<div class="container-fluid" style="margin-top:4%">
-<div style="text-align: center;border-radius:2px solid lightblue"><h5>We Also Deal In</h5></div>
+<div class="container-fluid" id="add_cont">
+<div id="add_div"><h5>We Also Deal In</h5></div>
 
 <div class="container-fluid">
   <div class="row">
       <div class="col-lg-3">
           <div class="row">
             <div class="col-lg-6">
-     <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" style="max-width:100%">
+     <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" class="full-maxwidth">
             </div>
             <div class="col-lg-6">
             <div>
@@ -535,7 +539,7 @@
          <div class="col-lg-3">
             <div class="row">
               <div class="col-lg-6">
-       <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" style="max-width:100%">
+       <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" class="full-maxwidth">
               </div>
               <div class="col-lg-6">
               <div>
@@ -555,7 +559,7 @@
            <div class="col-lg-3">
               <div class="row">
                 <div class="col-lg-6">
-         <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" style="max-width:100%">
+         <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" class="full-maxwidth" >
                 </div>
                 <div class="col-lg-6">
                 <div>
@@ -575,7 +579,7 @@
              <div class="col-lg-3">
                 <div class="row">
                   <div class="col-lg-6">
-           <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" style="max-width:100%">
+           <img  src="https://hm.imimg.com/imhome_gifs/cctv-camera.jpg" class="full-maxwidth">
                   </div>
                   <div class="col-lg-6">
                   <div>
@@ -603,7 +607,7 @@
 </div>
 
 
-<footer style="text-align: center;background-color:ghostwhite;margin-top:4" >
+<footer >
   <div>
       © Tie Knots International. All Rights Reserved (Terms of Use)
 
@@ -631,7 +635,7 @@
 
 
    <!--Contact-US-->
-   <div class="container-fluid" *ngIf="contactus" style="margin-top:5%;">
+   <div class="container-fluid mar_5" *ngIf="contactus" >
      <div class="container-fluid">
        <div class="row">
          <div class="col-lg-4">
@@ -646,7 +650,7 @@
                   No. 6, DLF Industrial Area, Moti Nagar, Moti Nagar, New Delhi - 110015, Delhi, India
 
   </div> 
-  <div style="margin-top:5%">
+  <div class="mar_5">
       <div>
           Call Us:
       </div>
@@ -658,7 +662,7 @@
        </div>
        
   </div>   
-  <div style="margin-top:5%">
+  <div class="mar_5">
   <div>  Mobile:</div>  
   <div>
       +91-9999649077
@@ -678,20 +682,20 @@
 
          </div>
          <div class="col-lg-8">
-            <div class="container-fluid" style="width:90%;background-color: rgb(49, 49, 245)" >
+            <div class="container-fluid" id="need_cont" >
  
-                <div   class="container-fluid" style="width:100%;background-color:rgb(172, 168, 168)">
-                  <h3 style="color:white;padding:10px 10px;text-align:center">Tell What You Need??</h3>
+                <div   class="container-fluid" >
+                  <h3 id="need_h3">Tell What You Need??</h3>
                 </div>
                 <div>
-                  <div style="color:white"> Describe Your Requirement in Detail </div>
-            <textarea [(ngModel)]="querytosent" style="width: 100%" name="querytosent"></textarea>
+                  <div class="white"> Describe Your Requirement in Detail </div>
+            <textarea [(ngModel)]="querytosent" class="full-width" name="querytosent"></textarea>
                 </div>
                 <div  class="container-fluid" >
-                    <button  class="btn" (click)="querysubmit(querytosent)" style="margin:auto;display: block;color:white ;background-color: rgb(0, 166, 153);" >Submit Query</button>
+                    <button  class="btn btn_query" (click)="querysubmit(querytosent)" >Submit Query</button>
             
                 </div>
-            <div  style="visibility: hidden;">
+            <div  class="hide">
              You Information  
             </div>
             
@@ -702,8 +706,8 @@
        </div>
 
      </div>
-     <div class="container-fluid" style="margin-top:10px">
-        <div  style="text-align: center;background-color:ghostwhite;" >
+     <div class="container-fluid" id="end_cont">
+        <div  id="end_div" >
           <div>
               © Tie Knots International. All Rights Reserved (Terms of Use)
         

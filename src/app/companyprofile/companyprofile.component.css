@@ -1,3 +1,19 @@
+#top {
+  margin-top: 100px;
+}
+
+#top_cont {
+  color: white;
+}
+
+#leads_tab {
+  word-wrap: break-word;
+}
+
+form {
+  text-align: center;
+}
+
 #dashsidebar> div>div:hover{
     cursor: pointer;
    

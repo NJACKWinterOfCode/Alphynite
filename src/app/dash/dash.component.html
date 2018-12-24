@@ -1,6 +1,11 @@
-<div class="container-fluid" style="margin-top:100px">
+<head>
+  <link rel="stylesheet" type="text/css" href="dash.component.css">
+</head>
+
+
+<div class="container-fluid" id="top_mar">
 <div class="row">
-  <div class="col-lg-2 col-md-2 col-sm-1"  style="color: white">
+  <div class="col-lg-2 col-md-2 col-sm-1 white" >
 <div class="container-fluid" id="dashsidebar"  >
 
 <div class="row" >
@@ -18,7 +23,7 @@
    <i class="fas fa-envelope"></i>   Messages
 </div>
   
-  <div  style="word-wrap:break-word" class="col-12" (click)="require=true"><span><i class="fas fa-tasks"></i>Leads
+  <div  id="top" class="col-12" (click)="require=true"><span><i class="fas fa-tasks"></i>Leads
   </span>
     </div>
 
@@ -43,7 +48,7 @@
 
   </div>
 <div class="col-lg-10 col-md-12 col-sm-12" >
-<div class="container-fluid" style="text-align: center;margin:auto">
+<div class="container-fluid txt_mar">
   <div class="row" >
       
 
@@ -53,15 +58,15 @@
       
               <div class="row">
       
-                <div style="background-color: yellow" class="col-lg-6 col-md-6">
-                    <img  src="../../assets/img_286382.png" style="max-width:100%;height: 100px">
+                <div class="col-lg-6 col-md-6 bg_yellow">
+                    <img class="img_hw"  src="../../assets/img_286382.png" >
       
                 </div>
-             <div  class="col-lg-6 col-md-6" style="text-align: center;margin: auto" ><h4 style="margin: auto">Enquires</h4></div>
+             <div  class="col-lg-6 col-md-6 txt_mar"  ><h4 class="h4_mar">Enquires</h4></div>
       
               </div>
             </div>
-            <div style="margin-top:10px" >
+            <div class="martop_10">
                 <a  class="btn btn-outline-primary col-lg-6" >View Products</a>
                 <a  class="btn btn-outline-primary col-lg-6 "  >Add product</a>
 
@@ -77,15 +82,15 @@
       
               <div class="row">
       
-                <div style="background-color: orange" class="col-lg-6 col-md-6">
-                    <img  src="../../assets/Investment-512.png" style="max-width:100%;height: 100px">
+                <div  class="col-lg-6 col-md-6 bg_orange">
+                    <img  src="../../assets/Investment-512.png" class="img_hw" >
       
                 </div>
-             <div  class="col-lg-6 col-md-6" style="text-align: center;margin: auto" ><h4 style="margin: auto">Leads</h4></div>
+             <div  class="col-lg-6 col-md-6 txt_mar"  ><h4 class="h4_mar">Leads</h4></div>
       
               </div>
             </div>
-            <div style="margin-top:10px" >
+            <div class="martop_10" >
                 <a  class="btn btn-outline-primary col-lg-6" >View Products</a>
                 <a  class="btn btn-outline-primary col-lg-6 " routerLink="/addproduct" >Add product</a>
 
@@ -102,15 +107,15 @@
       
               <div class="row">
       
-                <div style="background-color: yellow" class="col-lg-6 col-md-6">
-                    <img  src="../../assets/catalog-92528.png" style="max-width:100%;height: 100px">
+                <div  class="col-lg-6 col-md-6 bg_yellow">
+                    <img  src="../../assets/catalog-92528.png" class="img_hw">
       
                 </div>
-             <div  class="col-lg-6 col-md-6" style="text-align: center;margin: auto" ><h4 style="margin: auto">Catlog Views</h4></div>
+             <div  class="col-lg-6 col-md-6 txt_mar"  ><h4 class="h4_mar">Catlog Views</h4></div>
       
               </div>
             </div>
-            <div style="margin-top:10px" >
+            <div class="martop_10">
                 <a  class="btn btn-outline-primary col-lg-6" >View Products</a>
                 <a  class="btn btn-outline-primary col-lg-6 " >Add products</a>
 
@@ -128,7 +133,7 @@
 
 
   </div>
-  <div class="row" style="margin-top:2%">
+  <div class="row mar_2" >
     <div class=" card  col-lg-6" >
 <div>
  <h3>Active Plans</h3> 
@@ -144,21 +149,21 @@ Plans Activated : Unlimited Leads
          <h4>View Your Business Card</h4> 
         </div>
         <div>
-          <img src="../../assets/catalog-92528.png" style="height:200px;">
+          <img src="../../assets/catalog-92528.png" id="img_height">
         </div>
             </div>
 
   </div>
-  <div class="container-fluid card" style="margin-top:2%">
-      <div style="background:#232f3e;color: white;">
-          <h3 style="margin:auto">Products</h3> 
+  <div class="container-fluid card mar_2" >
+      <div class="bgw">
+          <h3 class="h4_mar">Products</h3>
          </div>
     <div class="row">
         <div class=" card col-lg-4 col-md-4">
 
            
 
-            <div style="display: block">
+            <div class="display">
               <canvas baseChart
                           [data]="doughnutChartData"
                           [labels]="doughnutChartLabels"
@@ -172,7 +177,7 @@ Plans Activated : Unlimited Leads
              <div class=" card col-lg-4 col-md-4">
                    
         
-              <div style="display: block">
+              <div class="display">
                 <canvas baseChart
                             [data]="doughnutChartData"
                             [labels]="doughnutChartLabels"
@@ -186,7 +191,7 @@ Plans Activated : Unlimited Leads
                <div class=" card col-lg-4 col-md-4">
                    
         
-                <div style="display: block">
+                <div class="display">
                   <canvas baseChart
                               [data]="doughnutChartData"
                               [labels]="doughnutChartLabels"
@@ -212,15 +217,15 @@ Plans Activated : Unlimited Leads
     </div>
 
 
-    <div class="container-fluid card" style="margin-top:2%">
-<div style="background:#232f3e;color: white;">
- <h3 style="margin:auto">Catalog Performance</h3> 
+    <div class="container-fluid card mar_2">
+<div class="bgw">
+ <h3 class="h4_mar">Catalog Performance</h3>
 </div>
 <div class="row">
 
 
     <div class="col-lg-8">
-        <div style="display: block">
+        <div class="display">
           <canvas baseChart
                   [datasets]="barChartData"
                   [labels]="barChartLabels"
@@ -244,22 +249,22 @@ Plans Activated : Unlimited Leads
 </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
