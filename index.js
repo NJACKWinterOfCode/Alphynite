@@ -73,7 +73,7 @@ app.post('/api/upload',upload.single('photo'), function (req, res,err) {
  
 
 app.post("/api/sendotp/",function(req,res){
-  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser: true},function(err,client){
+  MongoClient.connect("mongodb://aniket:aniket@ds157349.mlab.com:57349/users-alphynite",{useNewUrlParser: true},function(err,client){
     if(err){
       console.log("Unable to connect");
     }
@@ -122,7 +122,7 @@ app.post("/api/login",function(req,res){
     const db = client.db('Users');
     var username = req.body.Phone + '';
     var password = req.body.Password;
-   
+  
     db.collection('Users').find({Phone:username}).toArray()
     .then(function(doc){
       let auth = false;
@@ -134,13 +134,13 @@ app.post("/api/login",function(req,res){
             }
           }
           res.send(auth);
-        })    
+        })
       }
       else{
         res.send(auth);
       }
-    })  
-  })
+    })
+})
 })
 
 app.post("/api/signup/",function(req,res){
