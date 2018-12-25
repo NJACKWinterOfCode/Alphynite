@@ -120,35 +120,26 @@ app.post("/api/login",function(req,res){
     }
     console.log("Connected to Mongodb");
     const db = client.db('Users');
-    const saltRounds = 10;
     var username = req.body.Phone + '';
     var password = req.body.Password;
-    var auth = true;
-    bcrypt.hash(password,saltRounds,function(err,hash){
-      if(err){
-        auth = false;
+   
+    db.collection('Users').find({Phone:username}).toArray()
+    .then(function(doc){
+      let auth = false;
+      if(doc.length != 0){
+        bcrypt.compare(password,doc[0].Password,function(err,val){
+          if(!err){
+            if(val){
+              auth = true;
+            }
+          }
+          res.send(auth);
+        })    
       }
-      else{        
-        db.collection('Users').find({Phone:username}).toArray()
-        .then(function(doc){
-          if(hash === doc[0].Password){
-            auth = true;
-          }
-          else{
-            auth = false;            
-          }
-        },function(err){
-          auth = false;
-        }).catch((e) => {
-          console.log(e); 
-        })
-        console.log(auth);
-        
+      else{
         res.send(auth);
       }
-    })
-  
-
+    })  
   })
 })
 

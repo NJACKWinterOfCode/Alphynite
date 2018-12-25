@@ -162,10 +162,16 @@ if(isNaN(this.registerForm.value.Phone))
             'Content-Type':  'application/json'
           })
         };
-        this.http.post(this.config,JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
+        this.http.post(this.config+'/api/login',JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
         {
   
         console.log(res);
+        if(res){
+          this.route.navigate(['dash']);
+        }
+        else{
+          window.alert('Incorrect Username or password');
+        }
           
          })
   
