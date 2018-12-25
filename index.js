@@ -4,6 +4,8 @@ var path = require('path')
 
 var msg91 = require("msg91")("197611ACBvIjqJZM5a7ed724","AAYYUU", "4" );
 
+var MongoClient = require('mongodb').MongoClient;
+
 var app = express();
 var multer = require('multer');
 var bodyParser = require('body-parser');
@@ -18,10 +20,6 @@ app.use(function (req, res, next) {
 	next();
 });
  
-
-
-
-;
 app.use('/uploads/', express.static(path.join(__dirname, '/public/uploads')));
 
 var storage = multer.diskStorage({
@@ -52,8 +50,6 @@ limits:{
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
  
-
-
  
 app.post('/api/upload',upload.single('photo'), function (req, res,err) {
     if (!req.file) {
@@ -75,35 +71,91 @@ app.post('/api/upload',upload.single('photo'), function (req, res,err) {
      
 });
  
-	
-
-	
-
 
 app.post("/api/sendotp/",function(req,res){
+  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser: true},function(err,client){
+    if(err){
+      console.log("Unable to connect");
+    }
+    console.log("Connected to Mongodb");
+    const db = client.db('Users');
 
-console.log();
-	var mobileNo = req.body[0]['data']['Phone'];
- console.log(req.body[0]['OTP'])
+    
+    var mobileNo = req.body[0]['data']['Phone']; 
+    console.log(req.body[0]['OTP'])
+    
+    var data = req.body[0]['data'];
 
- var Message="Hi ! You OTP is "+req.body[0]['OTP'];
-msg91.send(mobileNo, Message, function(err, response){
-    console.log(err);
-    console.log(response);
-});
-console.log(req.connection.remoteAddress);
+    const saltRounds = 10;
+	  bcrypt.hash(data.Password, saltRounds, function(err, hash) {
+      if(err){
+        console.log("Error");
+      }
+      else{
+          data.Password = hash;
+          db.collection('Users').insertOne(data,function(err,result){
+            console.log("saved!");   
+          });
+          client.close();
+      }
 
-	res.send(["Done"]);
+	  })
 
+    var Message="Hi ! You OTP is "+req.body[0]['OTP'];
+    msg91.send(mobileNo, Message, function(err, response){
+        console.log(err);
+        console.log(response);
+    });
+    console.log(req.connection.remoteAddress);
 
+	  res.send(["Done"]);
+  });
 })
 
+app.post("/api/login",function(req,res){
+  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser:true},
+  function(err,client){
+    if(err){
+      console.log("Unable to connect");
+    }
+    console.log("Connected to Mongodb");
+    const db = client.db('Users');
+    const saltRounds = 10;
+    var username = req.body.Phone + '';
+    var password = req.body.Password;
+    var auth = true;
+    bcrypt.hash(password,saltRounds,function(err,hash){
+      if(err){
+        auth = false;
+      }
+      else{        
+        db.collection('Users').find({Phone:username}).toArray()
+        .then(function(doc){
+          if(hash === doc[0].Password){
+            auth = true;
+          }
+          else{
+            auth = false;            
+          }
+        },function(err){
+          auth = false;
+        }).catch((e) => {
+          console.log(e); 
+        })
+        console.log(auth);
+        
+        res.send(auth);
+      }
+    })
+  
 
+  })
+})
 
 app.post("/api/signup/",function(req,res){
 
-	console.log(req.body[0]['data']['Phone']);
-	
+  console.log(req.body[0]['data']['Phone']);
+
 
 	const saltRounds = 10;
 	bcrypt.hash(req.body[0]['data']['Phone'], saltRounds, function(err, hash) {
@@ -124,10 +176,10 @@ app.post("/api/signup/",function(req,res){
 
 
   
-    app.use(express.static(__dirname + '/dist/frontend/'))
-    app.get('/*',function(req,res){
-      res.sendFile(path.join(__dirname+'/dist/frontend/index.html'))
-    })
+    // app.use(express.static(__dirname + '/dist/frontend/'))
+    // app.get('/*',function(req,res){
+    //   res.sendFile(path.join(__dirname+'/dist/frontend/index.html'))
+    // })
 var port = process.env.PORT||3000;
 
 app.listen(port,console.log('Your server available at http://localhost:3000'));
