@@ -156,10 +156,10 @@ app.post("/api/signup/",function(req,res){
   res.send(["Done"])
     })
 
-    // app.use(express.static(dirname + '/dist/frontend/'))
-    // app.get('/*',function(req,res){
-    // res.sendFile(path.join(dirname+'/dist/frontend/index.html'))
-    // })
+    app.use(express.static(dirname + '/dist/frontend/'))
+    app.get('/*',function(req,res){
+    res.sendFile(path.join(dirname+'/dist/frontend/index.html'))
+    })
     
 var port = process.env.PORT||3000;
 
