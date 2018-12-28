@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "8"
+sudo: false
+dist: trusty
+
+branches:
+  only:
+  - master
+
+addons:
+  chrome: stable
+
+script:
+  - npm install
+  - npm run lint
+  - npm run test
+  - npm run build
+  - xvfb-run npm run e2e
