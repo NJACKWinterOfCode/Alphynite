@@ -1,14 +1,14 @@
 var express = require('express');
 var bcrypt= require('bcrypt');
 var path = require('path')
-
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var msg91 = require("msg91")("197611ACBvIjqJZM5a7ed724","AAYYUU", "4" );
-
-var MongoClient = require('mongodb').MongoClient;
-
 var app = express();
 var multer = require('multer');
 var bodyParser = require('body-parser');
+
+const uri = "mongodb://aniket:aniket123@ds157349.mlab.com:57349/users-alphynite"
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -73,17 +73,12 @@ app.post('/api/upload',upload.single('photo'), function (req, res,err) {
  
 
 app.post("/api/sendotp/",function(req,res){
-  MongoClient.connect("mongodb://aniket:aniket@ds157349.mlab.com:57349/users-alphynite",{useNewUrlParser: true},function(err,client){
-    if(err){
-      console.log("Unable to connect");
-    }
-    console.log("Connected to Mongodb");
-    const db = client.db('Users');
+    mongoose.connect(uri,{useNewUrlParser:true});
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
 
-    
-    var mobileNo = req.body[0]['data']['Phone']; 
     console.log(req.body[0]['OTP'])
-    
+    var mobileNo = req.body[0]['data']['Phone']; 
     var data = req.body[0]['data'];
 
     const saltRounds = 10;
@@ -93,24 +88,21 @@ app.post("/api/sendotp/",function(req,res){
       }
       else{
           data.Password = hash;
-          db.collection('Users').insertOne(data,function(err,result){
-            console.log("saved!");   
-          });
-          client.close();
+          db.once('open', function() {
+            console.log("Connected");
+            db.collection('Users').insertOne(data);
+        });
       }
 
 	  })
-
     var Message="Hi ! You OTP is "+req.body[0]['OTP'];
     msg91.send(mobileNo, Message, function(err, response){
         console.log(err);
         console.log(response);
     });
     console.log(req.connection.remoteAddress);
-
-	  res.send(["Done"]);
-  });
-})
+    res.send(["Done"]);
+});
 
 app.post("/api/login",function(req,res){
   MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser:true},
