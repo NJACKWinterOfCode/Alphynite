@@ -105,35 +105,34 @@ app.post("/api/sendotp/",function(req,res){
 });
 
 app.post("/api/login",function(req,res){
-  MongoClient.connect("mongodb://localhost:27017/Users",{useNewUrlParser:true},
-  function(err,client){
-    if(err){
-      console.log("Unable to connect");
-    }
-    console.log("Connected to Mongodb");
-    const db = client.db('Users');
-    var username = req.body.Phone + '';
+    mongoose.connect(uri,{useNewUrlParser:true});
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    var phone = req.body.Phone + '';
     var password = req.body.Password;
-  
-    db.collection('Users').find({Phone:username}).toArray()
-    .then(function(doc){
-      let auth = false;
-      if(doc.length != 0){
-        bcrypt.compare(password,doc[0].Password,function(err,val){
-          if(!err){
-            if(val){
-              auth = true;
+
+    db.collection('Users').findOne({'Phone':phone}, (err,doc) => {
+        if(err){
+          console.log("Error");
+        }
+        else{
+        let auth = false;
+        if( doc != null){
+          bcrypt.compare(password, doc.Password, (err,val) => {
+            if(!err){
+              if(val){
+                auth = true;
+              }
             }
-          }
+            res.send(auth);
+          })
+        }
+        else{
           res.send(auth);
-        })
+        }
       }
-      else{
-        res.send(auth);
-      }
-    })
-})
-})
+    });
+});
 
 app.post("/api/signup/",function(req,res){
 
@@ -156,13 +155,7 @@ app.post("/api/signup/",function(req,res){
     
   res.send(["Done"])
     })
-
-
-  
-    // app.use(express.static(__dirname + '/dist/frontend/'))
-    // app.get('/*',function(req,res){
-    //   res.sendFile(path.join(__dirname+'/dist/frontend/index.html'))
-    // })
+    
 var port = process.env.PORT||3000;
 
-app.listen(port,console.log('Your server available at http://localhost:3000'));
+app.listen(port,console.log(`Your server available at http://localhost:${port}`));
