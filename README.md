@@ -33,6 +33,7 @@ npm install
 ng serve
 ```
 
+Change the baseurl to http://127.0.0.1:3000/ in assests/config.ts 
 
 
 ## Alphynite Backend

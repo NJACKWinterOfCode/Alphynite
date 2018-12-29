@@ -44,7 +44,7 @@
 
 <div  *ngIf="userlogin;then log else logup"></div>
 <ng-template #logup>
-        <li>
+            <li>
                 <a class="nav-link " href="#">
                     <button (click)="post=true ;hidehome();"  class=" btn btn-outline-primary  " id="button2" type="submit">
                         Sell on Alphynite</button>
@@ -62,9 +62,23 @@
                        
                     </select>
                 </a>
-
-
             </li>
+            <div *ngIf="!userLoggedIn" class="btn white darken-4 col s12 m4 googleClass">
+                <a style="text-transform:none;color: black" 
+                (click)="loginWithGoogle()">
+                    <div class="left">
+                        <img width="30px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+                    </div>
+                    Google &nbsp;
+                </a>
+           </div>
+           <div *ngIf="userLoggedIn" class="btn white darken-4 col s12 m4 logOut">
+            <a style="text-transform:none;color: black"
+            (click)="logOut()">
+                Logout &nbsp;
+            </a>
+           </div>
+           
 </ng-template>
 <ng-template #log>
         <li>

@@ -43,7 +43,6 @@ else
     this.index=0;
     this.http.get('http://bookboss.herokuapp.com/home').subscribe(res=>
     {
-      console.log(res)
       this.data=res;
     });
    

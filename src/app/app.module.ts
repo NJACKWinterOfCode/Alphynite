@@ -16,6 +16,13 @@ import { ChartsModule } from 'ng2-charts';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CompanyprofilepageComponent } from './companyprofilepage/companyprofilepage.component';
+
+import {
+   SocialLoginModule,
+   AuthServiceConfig,
+   GoogleLoginProvider,
+} from "angular5-social-login";
+
 const routes: Routes = [
   { path: '',
    component: HomeComponent,
@@ -47,6 +54,19 @@ const routes: Routes = [
 },
 
 ];
+
+export function getAuthServiceConfigs() {
+   let config = new AuthServiceConfig(
+       [
+         {
+           id: GoogleLoginProvider.PROVIDER_ID,
+           provider: new GoogleLoginProvider("930432577405-cmi7pnjlsrb4bpp8dmhglm5j0r0v7nb5.apps.googleusercontent.com")
+         }
+      ]     
+   );
+   return config;
+ }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +78,15 @@ const routes: Routes = [
   ],
   imports: [ChartsModule,
     BrowserModule,RouterModule.forRoot(routes) ,HttpClientModule,FormsModule,ReactiveFormsModule,
+    SocialLoginModule
 
   ],
-  providers: [],
+  providers: [
+   {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

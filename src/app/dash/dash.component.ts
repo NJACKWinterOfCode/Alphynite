@@ -51,7 +51,6 @@ export class DashComponent implements OnInit {
       this.route.navigate([''])
     }
     document.getElementById('hide').style.display="none"
-console.log(document.cookie);  
   }
 
 }

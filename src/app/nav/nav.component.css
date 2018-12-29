@@ -180,6 +180,19 @@ border-radius: 10px
   width: 60%;
   padding: 10px;
 }
+/* 
+a:link{
+  text-decoration: none;
+} */
 
+.googleClass{
+  margin-top: 27px; 
+  padding-left :0px;
+  padding-bottom: 3px;
 
+}
+
+.logOut{
+  margin-top:30px;
+}
 

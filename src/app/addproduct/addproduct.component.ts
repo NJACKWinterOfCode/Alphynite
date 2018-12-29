@@ -4,6 +4,7 @@ import {HttpHeaders} from '@angular/common/http'
 import {Router, ActivatedRoute} from '@angular/router';
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { HttpClient } from '@angular/common/http';
+import {baseurl} from '../../assets/config'
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddproductComponent implements OnInit {
 registerForm:FormGroup;
-uri = 'http://127.0.0.1:3000/api/upload';
+uri = baseurl+'api/upload';
 signupsubmitted:any;
 imagearray=[];
 
@@ -83,7 +84,7 @@ public uploader: FileUploader = new FileUploader({url: this.uri, itemAlias: 'pho
       this.uploader.onCompleteAll=()=>{
         console.log(this.imagearray)
         
-        this.http.post("http://127.0.0.1:3000/api/product",[{"data":this.registerForm.value,"images":this.imagearray,"user":document.cookie.split("=")[1]}],httpOptions).subscribe(res=>{
+        this.http.post(baseurl+"api/product",[{"data":this.registerForm.value,"images":this.imagearray,"user":document.cookie.split("=")[1]}],httpOptions).subscribe(res=>{
           console.log(res)
                   })
       }
