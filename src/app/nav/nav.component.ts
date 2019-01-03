@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import {baseurl} from '../../assets/config'
 import { AuthService, GoogleLoginProvider } from 'angular5-social-login';
 
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
