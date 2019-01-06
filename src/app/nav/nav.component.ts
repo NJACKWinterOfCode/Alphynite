@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {HttpHeaders} from '@angular/common/http'
 import {Router, ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {baseurl} from '../../assets/config'
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -21,7 +23,6 @@ export class NavComponent implements OnInit {
   login:any;
   signupsubmitted :any;
   loginsubmitted:any;
-  config="http://127.0.0.1:3000"
   signup:any;
   signupotp:any;
   errorotp:any;
@@ -117,7 +118,7 @@ if(isNaN(this.registerForm.value.Phone))
         'Content-Type':  'application/json'
       })
     };
-     this.http.post(this.config+'/api/sendotp/',JSON.stringify([{"data":this.registerForm.value,"OTP":this.signupotp}]),httpOptions).subscribe(res=>
+     this.http.post(baseurl+'api/sendotp/',JSON.stringify([{"data":this.registerForm.value,"OTP":this.signupotp}]),httpOptions).subscribe(res=>
       {
 
       console.log(res);
@@ -162,11 +163,13 @@ if(isNaN(this.registerForm.value.Phone))
             'Content-Type':  'application/json'
           })
         };
-        this.http.post(this.config+'/api/login',JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
+        this.http.post(baseurl+'api/login',JSON.stringify(this.loginForm.value),httpOptions).subscribe(res=>
         {
   
-        console.log(res);
-        if(res){
+        if(res === true){
+          this.post = false;
+          localStorage.setItem("user",this.loginForm.value.Phone)
+          localStorage.setItem("user",res['hash']);
           this.route.navigate(['dash']);
         }
         else{
@@ -200,7 +203,7 @@ if(checkotp==this.signupotp)
       'Content-Type':  'application/json'
     })
   };
-  this.http.post(this.config+"/api/signup/",JSON.stringify([{"OTP":this.signupotp,"data":this.registerForm.value}]),httpOptions).subscribe(res=>
+  this.http.post(baseurl+"api/signup/",JSON.stringify([{"OTP":this.signupotp,"data":this.registerForm.value}]),httpOptions).subscribe(res=>
   {
 
   console.log(res);
